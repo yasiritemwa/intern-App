@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/WelcomePage.dart';
 import 'package:my_app/firebase_options.dart';
+import 'package:my_app/login_screen.dart';
 import 'package:my_app/signup_page.dart';
 
 
@@ -41,7 +44,9 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: SignupPage(),
+      home: FirebaseAuth.instance.currentUser != null
+          ?  WelcomePage()
+          : const LoginPage(),
     );
   }
 }

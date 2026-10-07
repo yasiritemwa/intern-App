@@ -1,8 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/search_page.dart';
 
+import 'auth_service.dart';
+import 'login_screen.dart';
+
 class WelcomePage extends StatelessWidget {
-  const WelcomePage({super.key});
+  final AuthService authService = AuthService();
+  Future<void> _logout(BuildContext context) async {
+    await AuthService().signOut();
+
+    if (context.mounted) {
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginPage()),
+            (route) => false,
+      );
+    }
+  }
+   WelcomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +33,20 @@ class WelcomePage extends StatelessWidget {
             child: Container(
               child: Row(
                 children: [
-                  Icon(Icons.search),
-                  SizedBox(width: 20),
-                  CircleAvatar(
-                    backgroundImage: AssetImage("assets/gabe.jpg"),
-                  ),
+
+
+                      Icon(Icons.search),
+                      SizedBox(width: 20),
+                      InkWell(onTap: (){
+                        _logout(context);
+
+                      },child: Icon(Icons.logout)),
+                      SizedBox(width: 20),
+                      CircleAvatar(
+                        backgroundImage: AssetImage("assets/gabe.jpg"),
+                      ),
+
+
                 ],
               ),
             ),
