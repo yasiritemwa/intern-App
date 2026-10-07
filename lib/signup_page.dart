@@ -17,7 +17,8 @@ class SignupPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("sign Up" , style: TextStyle(color: Colors.white , fontSize: 25)),
         centerTitle: true,
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.pinkAccent,
+        toolbarHeight: 50,
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -76,6 +77,7 @@ class SignupPage extends StatelessWidget {
                 },
 
               ),
+              SizedBox(height: 10,),
               //Confirm password
               TextFormField(
                 decoration: InputDecoration(
@@ -85,6 +87,7 @@ class SignupPage extends StatelessWidget {
 
                   ),
                 ),
+
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return "Enter Password";
@@ -101,8 +104,6 @@ class SignupPage extends StatelessWidget {
 
                   }
 
-
-
               ),
               SizedBox(height: 10),
               ElevatedButton(onPressed: (){
@@ -113,7 +114,6 @@ class SignupPage extends StatelessWidget {
                   );
                 }
               }, child: Text("Submit")),
-
 
 
             ],

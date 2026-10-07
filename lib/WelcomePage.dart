@@ -9,6 +9,7 @@ class WelcomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.grey.shade200,
         title: Text("Google Messages"),
         actions: [
@@ -20,7 +21,7 @@ class WelcomePage extends StatelessWidget {
                   Icon(Icons.search),
                   SizedBox(width: 20),
                   CircleAvatar(
-                    backgroundImage: AssetImage("assets/BioKit.jpg"),
+                    backgroundImage: AssetImage("assets/gabe.jpg"),
                   ),
                 ],
               ),
